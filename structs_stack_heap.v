@@ -166,14 +166,18 @@ fn main() {
 	println(stack_struct) // no change
 	// More complex situations arise with more complex closures.
 	// https://github.com/vlang/v/discussions/18755#discussioncomment-6347133
-	/*
-	* In V, there are structs allocated to the stack and structs allocated to the heap.
-	* Structs are "usually" allocated to the stack, but they can be allocated to the heap by the compiler.
-	* Structs can also forcefully allocated to the heap using the `&` prefix, which is also the prefix
-	* used for reference types.
-	* Functions can receive both values and references.
-	* The keyword `mut` signals whether or not the function can modify the original struct, no matter
-	* if the struct given to the function is a value or a reference.
-	* In closures there is a difference in whether the type is a value or a reference.
-	*/
 }
+/*
+* In V, there are structs allocated to the stack and structs allocated to the heap.
+* Structs are "usually" allocated to the stack, but they can be allocated to the heap by the compiler.
+* Structs can also forcefully allocated to the heap using the `&` prefix, which is also the prefix
+* used for reference types.
+*
+* Functions can receive both values and references.
+* The keyword `mut` signals whether or not the function can modify the original struct, no matter
+* if the struct given to the function is a value or a reference.
+* If a function expects a reference, it also can take values. If a function expects values, it can take 
+* references too.
+*
+* In closures there is a difference in whether the type is a value or a reference.
+*/
